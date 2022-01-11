@@ -1,0 +1,3 @@
+create client and server folders . 
+In terminal in server :  npm install --save cors nodemon express socket.io\
+In terminal in client : npm install --save react-router socket.io-client react-scroll-to-bottom react-emoji query-string
