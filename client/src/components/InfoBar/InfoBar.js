@@ -5,6 +5,7 @@ import onlineIcon from "../../Icons/onlineIcon.png"
 import "./InfoBar.css"
 
 const InfoBar = ({room, users}) => {
+  room = room.trim().toLowerCase()
     return (
         <div className='infoBar'>
           <div className='top'>

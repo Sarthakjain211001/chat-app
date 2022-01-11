@@ -11,7 +11,7 @@ import Messages from '../Messages/Messages';
 let socket=null;
 
 const ENDPOINT = process.env.NODE_ENV ? "https://chat-app-sarthakjain.herokuapp.com/" : "localhost:5000";                     
-//"localhost:5000";  
+
 
 const Chat = () => {
 

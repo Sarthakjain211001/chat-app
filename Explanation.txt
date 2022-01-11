@@ -1,6 +1,11 @@
+// video name : javascript mastery build and deploy real time chat app 
+                https://www.youtube.com/watch?v=ZwFA3YMfkoc
+
+
 create client and server folders . 
 In terminal in server :  npm install --save cors nodemon express socket.io\
 In terminal in client : npm install --save react-router socket.io-client react-scroll-to-bottom react-emoji query-string
+
 
 *** Deploying our application: 
 
@@ -12,9 +17,7 @@ A.) Deploying server on heroku :
 2.) go to server in terminal 
     heroku login 
 
-initialise the repo in server 
-
-3.) git init 
+3.) git init (initialise the repo in server )
 4.) heroku git:remote -a mytestapp-sarthak
 5.) git add .
 6.) git commit -am "make it better"
@@ -42,6 +45,11 @@ also :    const cors = require('cors)
 
 ****
 
-***In the Chat.js change the endpoint to our new deployed server's link. 
-   So that the deployed server will be accessed now
+***In the Chat.js assign the endpoint dynamically
+i.e. if our app is in production mode then heroku's link else localhost:5000.   (use process.env.NODE_ENV)
+So that the deployed server will be accessed in production mode
 ***
+
+
+Our chat-app link : 
+https://hardcore-leakey-6db942.netlify.app
