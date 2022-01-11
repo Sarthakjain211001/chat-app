@@ -7,12 +7,13 @@ const cors = require('cors');
 const {addUser, removeUser, getUser, getUsersInRoom} = require("./users")
 
 const app = express();
+app.use(cors());
 const server = http.createServer(app);
 app.use(router);
-app.use(cors());
 const io = socketio(server, {
     cors: {
-    origin: ["http://localhost:3000"]
+      origin: "*"
+    //origin: ["http://localhost:3000", "https://61ddac015b7a3b445971edd3--hardcore-leakey-6db942.netlify.app/"]
     }
   });
 
@@ -30,7 +31,7 @@ io.on('connection', (socket)=>{
   
   socket.join(user.room); //to join the user in the room he gave
 
-  socket.emit('message', {user: "admin", text: `Hi ${user.name} ! Welcome to the room ${user.room}`});  //To send the usr a welcome message.
+  socket.emit('message', {user: "admin", text: `Hi ${user.name} ! Welcome to the room "${user.room}"`});  //To send the usr a welcome message.
   socket.broadcast.to(user.room).emit('message', { user: 'admin', text:`${user.name} has joined`})  //This will send the message to everyone present in the room (because .to(user.room) is mentioned) except that specific user.
     
   io.to(user.room).emit('roomData', { room: user.room, users: getUsersInRoom(user.room)})
