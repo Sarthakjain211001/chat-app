@@ -3,12 +3,13 @@ const socketio = require('socket.io')
 const http = require('http')
 const router = require('./router')
 const PORT = process.env.PORT  || 5000
+const cors = require('cors');
 const {addUser, removeUser, getUser, getUsersInRoom} = require("./users")
 
 const app = express();
 const server = http.createServer(app);
 app.use(router);
-
+app.use(cors());
 const io = socketio(server, {
     cors: {
     origin: ["http://localhost:3000"]
